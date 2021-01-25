@@ -4,13 +4,18 @@ import ReactDom from 'react-dom'
 function Greeting() {
   return (
     <div>
-      <h4>gg</h4>
+      <div>
+        <h4>gg</h4>
+        <ul>
+          <li>
+            <a href='#'>gol</a>
+          </li>
+          <input type='text' name='' id='' />
+        </ul>
+      </div>
+      <div></div>
     </div>
   )
 }
-
-//const Greeting = () => {
-//return React.createElement('h2', {}, 'gg')
-//}
 
 ReactDom.render(<Greeting />, document.getElementById('root'))
