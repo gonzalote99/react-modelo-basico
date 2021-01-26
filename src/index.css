@@ -8,7 +8,7 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
     Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   background-color: white;
-  color: red;
+  color: black;
 }
 
 .booklist {
@@ -37,4 +37,6 @@ body {
 .book h4 {
   color: red;
   letter-spacing: 5px;
+  font-size: 0.75rem;
+  margin-top: 0.25rem;
 }
