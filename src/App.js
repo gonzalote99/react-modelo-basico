@@ -9,7 +9,7 @@ function App() {
   return (
     <div className='container'>
       <h2>alg</h2>
-      <UseStateCounter />
+      <UseStateArray />
     </div>
   )
 }
