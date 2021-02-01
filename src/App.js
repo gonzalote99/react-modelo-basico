@@ -5,12 +5,12 @@ import UseStateArray from './UseStateArray'
 import UseStateObject from './UseStateObject'
 import UseStateCounter from './UseStateCounter'
 import UseEffectBasics1 from './UseEffectBasics1'
+import UseEffectCleanup from './UseEffectCleanup'
 
 function App() {
   return (
     <div className='container'>
-      <h2>alg</h2>
-      <UseEffectBasics1 />
+      <UseEffectCleanup />
     </div>
   )
 }
