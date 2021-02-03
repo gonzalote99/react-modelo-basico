@@ -4,12 +4,12 @@ import UseStateCounter from './UseStateCounter'
 import UseEffectBasics1 from './UseEffectBasics1'
 import UseEffectCleanup from './UseEffectCleanup'
 import ShowHide from './ShowHide'
-import ControlledInputs from './ControllledInputs'
+import ControlledInputs1 from './ControlledInputs1'
 
 function App() {
   return (
     <div className='container'>
-      <ControlledInputs />
+      <ControlledInputs1 />
     </div>
   )
 }
