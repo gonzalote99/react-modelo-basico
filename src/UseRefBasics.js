@@ -20,7 +20,8 @@ const UseRefBasics = () => {
     <>
       <form className='form' onSubmit={handleSubmit}>
         <div>
-          <input type='text' ref={refContainer} />
+          <input type='text' ref={refContainer} />{' '}
+          {/* muestra en consola la etiqueta que contenga el refcontainer  */}
         </div>
         <button type='submit'>submit</button>
       </form>
