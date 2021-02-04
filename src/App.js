@@ -2,13 +2,12 @@ import logo from './logo.svg'
 import './App.css'
 import UseStateCounter from './UseStateCounter'
 import UseEffectBasics1 from './UseEffectBasics1'
-import UseRefBasics from './UseRefBasics'
-import UseReducer from './usereducer/Index'
+import PropDrilling from './PropDrilling'
 
 function App() {
   return (
     <div className='container'>
-      <UseReducer />
+      <PropDrilling />
     </div>
   )
 }
