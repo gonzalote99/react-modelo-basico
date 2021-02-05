@@ -5,11 +5,12 @@ import UseEffectBasics1 from './UseEffectBasics1'
 import PropDrilling from './PropDrilling'
 import ContextAPI from './ContextAPI'
 import Example from './Example'
+import Proptypes from './Proptypes'
 
 function App() {
   return (
     <div className='container'>
-      <Example />
+      <Proptypes />
     </div>
   )
 }
