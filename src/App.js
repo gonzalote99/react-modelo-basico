@@ -6,11 +6,12 @@ import PropDrilling from './PropDrilling'
 import ContextAPI from './ContextAPI'
 import Example from './Example'
 import Proptypes from './Proptypes'
+import ReactRouter from './ReactRouter'
 
 function App() {
   return (
     <div className='container'>
-      <Proptypes />
+      <ReactRouter />
     </div>
   )
 }
