@@ -7,11 +7,12 @@ import ContextAPI from './ContextAPI'
 import Example from './Example'
 import Proptypes from './Proptypes'
 import ReactRouter from './ReactRouter'
+import Memo from './Memo'
 
 function App() {
   return (
     <div className='container'>
-      <ReactRouter />
+      <Memo />
     </div>
   )
 }
