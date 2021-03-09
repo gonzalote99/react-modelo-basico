@@ -1,59 +1,55 @@
-import React, { useState, useContext, useReducer, useEffect } from 'react'
-import cartItems from './data'
-import reducer from './reducer'
-// ATTENTION!!!!!!!!!!
-// I SWITCHED TO PERMANENT DOMAIN
-const url = 'https://course-api.com/react-useReducer-cart-project'
+import React, { useState, useContext, useEffect } from 'react'
+import { useCallback } from 'react'
+
+const url = 'https://www.thecocktaildb.com/api/json/v1/1/search.php?s='
 const AppContext = React.createContext()
 
-const initialState = {
-  loading: false,
-  cart: cartItems,
-  total: 0,
-  amount: 0,
-}
-
 const AppProvider = ({ children }) => {
-  const [state, dispatch] = useReducer(reducer, initialState)
+  const [loading, setLoading] = useState(true)
+  const [searchTerm, setSearchTerm] = useState('a')
+  const [cocktails, setCocktails] = useState([])
 
-  const clearCart = () => {
-    dispatch({ type: 'CLEAR_CART' })
-  }
-  const remove = (id) => {
-    dispatch({ type: 'REMOVE', payload: id })
-  }
-  const increase = (id) => {
-    dispatch({ type: 'INCREASE', payload: id })
-  }
-  const decrease = (id) => {
-    dispatch({ type: 'DECREASE', payload: id })
-  }
-  const fetchData = async () => {
-    dispatch({ type: 'LOADING' })
-    const response = await fetch(url)
-    const cart = await response.json()
-    dispatch({ type: 'DISPLAY_ITEMS', payload: cart })
-  }
-  const toggleAmount = (id, type) => {
-    dispatch({ type: 'TOGGLE_AMOUNT', payload: { id, type } })
-  }
-  useEffect(() => {
-    fetchData()
-  }, [])
+  const fetchDrinks = useCallback( async () => {
+    setLoading(true)
+    try {
+      const response = await fetch(`${url}${searchTerm}`)
+      const data = await response.json()
+      console.log(data);
+      const { drinks } = data
+      if (drinks) {
+        const newCocktails = drinks.map((item) => {
+          const {
+            idDrink,
+            strDrink,
+            strDrinkThumb,
+            strAlcoholic,
+            strGlass,
+          } = item
 
+          return {
+            id: idDrink,
+            name: strDrink,
+            image: strDrinkThumb,
+            info: strAlcoholic,
+            glass: strGlass,
+          }
+        })
+        setCocktails(newCocktails)
+      } else {
+        setCocktails([])
+      }
+      setLoading(false)
+    } catch (error) {
+      console.log(error)
+      setLoading(false)
+    }
+  },[searchTerm])
   useEffect(() => {
-    dispatch({ type: 'GET_TOTALS' })
-  }, [state.cart])
+    fetchDrinks()
+  }, [searchTerm,fetchDrinks])
   return (
     <AppContext.Provider
-      value={{
-        ...state,
-        clearCart,
-        remove,
-        increase,
-        decrease,
-        toggleAmount,
-      }}
+      value={{ loading, cocktails, searchTerm, setSearchTerm }}
     >
       {children}
     </AppContext.Provider>
